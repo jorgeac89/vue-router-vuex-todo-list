@@ -1,0 +1,35 @@
+<div>
+  <div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+      <h2>
+        New todo
+      </h2>
+      <router-link to="/" class="font-weight-bold">
+        <i class="fas fa-list-alt mr-2" />
+        Todo list
+      </router-link>
+    </div>
+  </div>
+  <form>
+    <div class="row mt-3">
+      <div class="col-12">
+        <textarea
+          v-model="todoText"
+          class="form-control form-control-lg mb-2"
+          placeholder="Write the todo text here..."/>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12 text-center">
+        <button
+          v-bind:disabled="!todoText"
+          v-on:click="onAddTodo()"
+          type="button"
+          class="btn btn-primary font-weight-bold">
+          <i class="fas fa-save mr-2" />
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+docker run \
+  -d \
+  -p 8091:80 \
+  --restart unless-stopped \
+  --name vueroutervuextodolist_latest \
+  vueroutervuextodolist:latest

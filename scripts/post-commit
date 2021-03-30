@@ -1,0 +1,26 @@
+#!/bin/sh
+
+PROJECT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
+
+echo "POST-COMMIT HOOK..."
+
+cd "$PROJECT_PATH" || exit 1
+
+PREVIOUS_COMMIT="$(git rev-parse HEAD)"
+VERSION="$(git show $PREVIOUS_COMMIT:package.json \
+  | grep version \
+  | head -1 \
+  | awk -F: '{ print $2 }' \
+  | sed 's/[",]//g' \
+  | tr -d '[[:space:]]')"
+
+# Allows to read user input below, assigns stdin to keyboard
+GENERATE_TAG="n"
+exec < /dev/tty 
+read -p "Create tag for version $VERSION? (y/n) " GENERATE_TAG
+
+if [ "$(echo $GENERATE_TAG | sed 's/.*/\L&/')" = "y" ]; then
+  git tag -a "v$VERSION" -m "Version $VERSION" $PREVIOUS_COMMIT \
+  && echo "✔ Version $VERSION tagged" \
+  || { echo "✘ Tagging version $VERSION failed" && exit 1; }
+fi

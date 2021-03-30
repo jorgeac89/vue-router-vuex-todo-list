@@ -1,0 +1,4 @@
+#!/bin/sh
+
+docker container stop vueroutervuextodolist_latest \
+&& docker container rm vueroutervuextodolist_latest

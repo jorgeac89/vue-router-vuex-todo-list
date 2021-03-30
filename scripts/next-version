@@ -1,0 +1,56 @@
+#!/bin/sh
+
+PROJECT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
+
+cd "$PROJECT_PATH" || exit 1
+
+PREVIOUS_COMMIT="$(git rev-parse HEAD)"
+PACKAGE_VERSION="$(git show $PREVIOUS_COMMIT:package.json \
+  | grep version \
+  | head -1 \
+  | awk -F: '{ print $2 }' \
+  | sed 's/[",]//g' \
+  | tr -d '[[:space:]]')"
+
+DEVSUFFIX="snapshot"
+RELSUFFIX="rc"
+
+SEMVER=$(echo $PACKAGE_VERSION | awk 'BEGIN { FS = "-" } ; { print $1 }')
+MAJOR_VERSION=$(echo $SEMVER | awk 'BEGIN { FS = "." } ; { print $1 }')
+MINOR_VERSION=$(echo $SEMVER | awk 'BEGIN { FS = "." } ; { print $2 }')
+PATCH_VERSION=$(echo $SEMVER | awk 'BEGIN { FS = "." } ; { print $3 }')
+
+DEVVER=$(echo $PACKAGE_VERSION | awk 'BEGIN { FS = "-" } ; { print $2 }')
+SUFFIX=$(echo $DEVVER | awk 'BEGIN { FS = "." } ; { print $1 }')
+BUILD=$(echo $DEVVER | awk 'BEGIN { FS = "." } ; { print $2 }')
+[ -z "$BUILD" ] &&  BUILD="0"
+FEATHASH=$(echo $DEVVER | awk 'BEGIN { FS = "." } ; { print $3 }')
+[ -z "$FEATHASH" ] &&  FEATHASH="$(git rev-parse --abbrev-ref HEAD | sha256sum | cut -c1-10)"
+FEATBUILD=$(echo $DEVVER | awk 'BEGIN { FS = "." } ; { print $4 }')
+[ -z "$FEATBUILD" ] &&  FEATBUILD="0"
+
+NEXT_VERSION=""
+case "$(git rev-parse --abbrev-ref HEAD)" in
+  develop) NEXT_VERSION="$SEMVER-$DEVSUFFIX.$(($BUILD+1))" ;;
+  feature*) NEXT_VERSION="$SEMVER-$DEVSUFFIX.$BUILD.$FEATHASH.$(($FEATBUILD+1))" ;;
+esac
+
+if [ ! -z "$NEXT_VERSION" ]; then 
+  AUTO_BUMP="n"
+  # Allows to read user input below, assigns stdin to keyboard
+  exec < /dev/tty 
+  read -p "New version is $NEXT_VERSION, is that correct? (current $PACKAGE_VERSION) (y/n) " AUTO_BUMP
+
+  [ ! "$(echo $AUTO_BUMP | sed 's/.*/\L&/')" = "y" ] && { \
+    # Allows to read user input below, assigns stdin to keyboard
+    exec < /dev/tty 
+    read -p "New version (current $PACKAGE_VERSION): " NEXT_VERSION; }
+else
+  # Allows to read user input below, assigns stdin to keyboard
+  exec < /dev/tty 
+  read -p "New version (current $PACKAGE_VERSION): " NEXT_VERSION
+fi
+
+[ -z "$NEXT_VERSION" ] \
+  && exit 1 \
+  || echo "$NEXT_VERSION"

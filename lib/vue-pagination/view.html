@@ -1,0 +1,113 @@
+<ul v-bind:class="containerClass ? containerClass : ''">
+  <li
+    v-bind:class="`${previousClass ? previousClass : ''}
+      ${currentPage === 0 ? disabledClass : ''}`.trim()">
+    <a
+      v-on:click="changePage(currentPage - 1)"
+      v-on:keydown.enter="changePage(currentPage - 1)"
+      v-on:keydown.space="changePage(currentPage - 1)"
+      v-bind:class="previousLinkClass ? previousLinkClass : ''"
+      v-bind:aria-disabled="currentPage === 0 ? 'true' : 'false'"
+      v-html="previousLabel"
+      aria-label="Previous page"
+      role="button"
+      tabindex="0">
+    </a>
+  </li>
+  <li
+    v-for="page in leftPages"
+    v-bind:key="`vue-pagination-left-${page}`"
+    v-bind:class="`${pageClass ? pageClass : ''}
+      ${currentPage === page ? activeClass : ''}`.trim()">
+    <a
+      v-on:click="changePage(page)"
+      v-on:keydown.enter="changePage(page)"
+      v-on:keydown.space="changePage(page)"
+      v-bind:class="`${pageLinkClass ? pageLinkClass : ''}
+        ${currentPage === page ? activeLinkClass : ''}`.trim()"
+      v-bind:aria-label="`Page ${page + 1}`"
+      role="button"
+      tabindex="0">
+      {{page + 1}}
+    </a>
+  </li>
+  <li
+    v-if="leftPages.length > 0
+      && leftPages[leftPages.length - 1] < centerPages[0] - 1"
+    v-bind:class="breakClass ? breakClass : ''">
+    <a
+      v-bind:class="breakLinkClass ? breakLinkClass : ''"
+      v-on:click="currentPage - pageRangeDisplayed >= 0 ?
+        changePage(currentPage - pageRangeDisplayed) : changePage(0)"
+      v-on:keydown.enter="currentPage - pageRangeDisplayed >= 0 ?
+        changePage(currentPage - pageRangeDisplayed) : changePage(0)"
+      v-on:keydown.space="currentPage - pageRangeDisplayed >= 0 ?
+        changePage(currentPage - pageRangeDisplayed) : changePage(0)"
+      v-html="breakLabel"
+      role="button"
+      tabindex="0">
+    </a>
+  </li>
+  <li
+    v-for="page in centerPages"
+    v-bind:key="`vue-pagination-center-${page}`"
+    v-bind:class="`${pageClass ? pageClass : ''}
+      ${currentPage === page ? activeClass : ''}`.trim()">
+    <a
+      v-on:click="changePage(page)"
+      v-on:keydown.enter="changePage(page)"
+      v-on:keydown.space="changePage(page)"
+      v-bind:class="`${pageLinkClass ? pageLinkClass : ''}
+        ${currentPage === page ? activeLinkClass : ''}`.trim()"
+      v-bind:aria-label="`Page ${page + 1}`"
+      role="button"
+      tabindex="0">
+      {{page + 1}}
+    </a>
+  </li>
+  <li
+    v-if="rightPages.length > 0 && rightPages[0] > centerPages[centerPages.length - 1] + 1"
+    v-bind:class="breakClass ? breakClass : ''">
+    <a
+      v-bind:class="breakLinkClass ? breakLinkClass : ''"
+      v-on:click="currentPage + pageRangeDisplayed < pageCount ?
+        changePage(currentPage + pageRangeDisplayed) : changePage(pageCount - 1)"
+      v-html="breakLabel"
+      role="button"
+      tabindex="0">
+    </a>
+  </li>
+  <li
+    v-for="page in rightPages"
+    v-bind:key="`vue-pagination-right-${page}`"
+    v-bind:class="`${pageClass ? pageClass : ''}
+      ${currentPage === page ? activeClass : ''}`.trim()">
+    <a
+      v-on:click="changePage(page)"
+      v-on:keydown.enter="changePage(page)"
+      v-on:keydown.space="changePage(page)"
+      v-bind:class="`${pageLinkClass ? pageLinkClass : ''}
+        ${currentPage === page ? activeLinkClass : ''}`.trim()"
+      v-bind:aria-label="`Page ${page + 1}`"
+      role="button"
+      tabindex="0">
+      {{page + 1}}
+    </a>
+  </li>
+  <li
+    v-bind:class="`${nextClass ? nextClass : ''}
+      ${currentPage === (pageCount - 1) ? disabledClass : ''}`.trim()">
+    <a
+      v-on:click="changePage(currentPage + 1)"
+      v-on:keydown.enter="changePage(currentPage + 1)"
+      v-on:keydown.space="changePage(currentPage + 1)"
+      v-bind:class="nextLinkClass ? nextLinkClass : ''"
+      v-bind:aria-disabled="currentPage === (pageCount - 1) ?
+        'true' : 'false'"
+      v-html="nextLabel"
+      aria-label="Next page"
+      role="button"
+      tabindex="0">
+    </a>
+  </li>
+</ul>

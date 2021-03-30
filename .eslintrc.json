@@ -1,0 +1,55 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": ["import"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true,
+    "jest": true,
+    "jquery": true,
+    "es6": true,
+    "mocha": true
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.common.js"
+      }
+    }
+  },
+  "rules": {
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        "pattern": {
+          "js": "never",
+          "json": "never",
+          "vue": "never",
+          "css": "never",
+          "scss": "never"
+        }
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state", "todo"]
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  }
+}

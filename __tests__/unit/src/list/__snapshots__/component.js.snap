@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component renders correctly during fetching data 1`] = `
+<div>
+  <div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+      <h2>
+        Todo list
+      </h2> <a class="font-weight-bold"><i class="fas fa-plus-square mr-2"></i>
+        New todo
+      </a>
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col-12 d-flex justify-content-center">
+      <div role="status" class="spinner-border" style="width: 4rem; height: 4rem;"><span class="sr-only">Loading...</span></div>
+    </div>
+  </div>
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`List component renders correctly when an error occurs 1`] = `
+<div>
+  <div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+      <h2>
+        Todo list
+      </h2> <a class="font-weight-bold"><i class="fas fa-plus-square mr-2"></i>
+        New todo
+      </a>
+    </div>
+  </div>
+  <!---->
+  <!---->
+  <!---->
+  <div class="row mt-3">
+    <div class="col-12">
+      <div role="alert" class="alert alert-danger mb-0">
+        Error message.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List component renders correctly with elements to display 1`] = `
+<div>
+  <div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+      <h2>
+        Todo list
+      </h2> <a class="font-weight-bold"><i class="fas fa-plus-square mr-2"></i>
+        New todo
+      </a>
+    </div>
+  </div>
+  <!---->
+  <div class="row mt-3">
+    <div class="col-12">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex align-items-center">
+          <!---->
+          <!----> <i role="checkbox" aria-checked="false" aria-label="Not done" tabindex="0" class="far fa-square mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 disabled text-capitalize">
+              delectus aut autem
+            </span> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <!---->
+          <!----> <i role="checkbox" aria-checked="false" aria-label="Not done" tabindex="0" class="far fa-square mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 disabled text-capitalize">
+              quis ut nam facilis et officia qui
+            </span> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <!---->
+          <!----> <i role="checkbox" aria-checked="false" aria-label="Not done" tabindex="0" class="far fa-square mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 disabled text-capitalize">
+              fugiat veniam minus
+            </span> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+        <li class="list-group-item d-flex align-items-center"><i role="checkbox" aria-checked="true" aria-label="Done" tabindex="0" class="far fa-check-square text-muted mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 text-muted text-capitalize font-weight-light"><del>et porro tempora</del></span>
+          <!---->
+          <!----> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <!---->
+          <!----> <i role="checkbox" aria-checked="false" aria-label="Not done" tabindex="0" class="far fa-square mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 disabled text-capitalize">
+              laboriosam mollitia et enim quasi adipisci quia provident illum
+            </span> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <!---->
+          <!----> <i role="checkbox" aria-checked="false" aria-label="Not done" tabindex="0" class="far fa-square mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 disabled text-capitalize">
+              qui ullam ratione quibusdam voluptatem quia omnis
+            </span> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <!---->
+          <!----> <i role="checkbox" aria-checked="false" aria-label="Not done" tabindex="0" class="far fa-square mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 disabled text-capitalize">
+              illo expedita consequatur quia in
+            </span> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+        <li class="list-group-item d-flex align-items-center"><i role="checkbox" aria-checked="true" aria-label="Done" tabindex="0" class="far fa-check-square text-muted mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 text-muted text-capitalize font-weight-light"><del>quo adipisci enim quam ut ab</del></span>
+          <!---->
+          <!----> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <!---->
+          <!----> <i role="checkbox" aria-checked="false" aria-label="Not done" tabindex="0" class="far fa-square mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 disabled text-capitalize">
+              molestiae perspiciatis ipsa
+            </span> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+        <li class="list-group-item d-flex align-items-center"><i role="checkbox" aria-checked="true" aria-label="Done" tabindex="0" class="far fa-check-square text-muted mr-3" style="font-size: 1.3rem; cursor: pointer;"></i> <span class="flex-grow-1 text-muted text-capitalize font-weight-light"><del>illo est ratione doloremque quia maiores aut</del></span>
+          <!---->
+          <!----> <button type="button" class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"><i class="fas fa-trash mr-2"></i>
+            Remove
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-12">
+      <vuepaginate-stub previouslabel="<i class=&quot;fas fa-chevron-left&quot;/>" nextlabel="<i class=&quot;fas fa-chevron-right&quot;/>" breaklabel="..." forcepage="0" pagecount="1" marginpagesdisplayed="1" pagerangedisplayed="5" onpagechange="function () { [native code] }" containerclass="pagination justify-content-center mb-0 font-weight-bold" pageclass="page-item" pagelinkclass="page-link" previousclass="page-item" previouslinkclass="page-link" nextclass="page-item" nextlinkclass="page-link" breakclass="page-item" breaklinkclass="page-link" activeclass="active" activelinkclass="" disabledclass="disabled"></vuepaginate-stub>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`List component renders correctly without elements to display 1`] = `
+<div>
+  <div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+      <h2>
+        Todo list
+      </h2> <a class="font-weight-bold"><i class="fas fa-plus-square mr-2"></i>
+        New todo
+      </a>
+    </div>
+  </div>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;

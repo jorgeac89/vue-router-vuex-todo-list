@@ -1,0 +1,10 @@
+#!/bin/sh
+
+PROJECT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
+
+cd "$PROJECT_PATH" \
+&& "$PROJECT_PATH/node_modules/.bin/onchange" \
+  "$PROJECT_PATH/src/**/*.{css}" \
+  -- \
+  "$PROJECT_PATH/node_modules/.bin/stylelint" \
+  {{changed}}

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+PROJECT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
+
+cd "$PROJECT_PATH" \
+&& "$PROJECT_PATH/node_modules/.bin/cross-env" \
+  NODE_ENV=development \
+  BABEL_ENV=development \
+  "$PROJECT_PATH/node_modules/.bin/webpack" \
+  serve \
+  --port 8090 \
+  --config "$PROJECT_PATH/webpack.prod.js"

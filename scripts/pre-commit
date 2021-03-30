@@ -1,0 +1,34 @@
+#!/bin/sh
+
+PROJECT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
+SCRIPTS_PATH=$(dirname "$(readlink -f "$0")")
+
+echo "PRE-COMMIT HOOK..."
+
+"$SCRIPTS_PATH/lint" > /dev/null 2>&1 \
+&& echo "✔ Lint passed" \
+|| { echo "✘ Lint failed" && exit 1; }
+
+"$SCRIPTS_PATH/stylelint" > /dev/null 2>&1 \
+&& echo "✔ Style lint passed" \
+|| { echo "✘ Style lint failed" && exit 1; }
+
+"$SCRIPTS_PATH/test" > /dev/null 2>&1 \
+&& echo "✔ Tests passed" \
+|| { echo "✘ Tests failed" && exit 1; }
+
+"$SCRIPTS_PATH/build-dev" > /dev/null 2>&1 \
+&& echo "✔ Development build done" \
+|| { echo "✘ Development build failed" && exit 1; }
+
+"$SCRIPTS_PATH/build-prod" > /dev/null 2>&1 \
+&& echo "✔ Production build done" \
+|| { echo "✘ Production build failed" && exit 1; }
+
+NEXT_VERSION="$($SCRIPTS_PATH/next-version)"
+[ ! -z "$NEXT_VERSION" ] \
+&& cd "$PROJECT_PATH" \
+&& pnpm version "$NEXT_VERSION" -git-tag-version=false > /dev/null 2>&1 \
+&& git add ./package.json \
+&& echo "✔ Version updated" \
+|| { echo "✘ Version update failed" && exit 1; }

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+PROJECT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
+SCRIPTS_PATH=$(dirname "$(readlink -f "$0")")
+
+cd "$PROJECT_PATH"
+git config core.fileMode false
+ln -sf "$SCRIPTS_PATH/pre-commit" "$PROJECT_PATH/.git/hooks/pre-commit"
+ln -sf "$SCRIPTS_PATH/post-commit" "$PROJECT_PATH/.git/hooks/post-commit"
+pnpm install

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+kill -2 \
+  $(lsof -i :8090 | grep LISTEN | awk '{print $2}')

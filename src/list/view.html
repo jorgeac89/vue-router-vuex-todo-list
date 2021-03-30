@@ -1,0 +1,105 @@
+<div>
+  <div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+      <h2>
+        Todo list
+      </h2>
+      <router-link to="/new" class="font-weight-bold">
+        <i class="fas fa-plus-square mr-2" />
+        New todo
+      </router-link>
+    </div>
+  </div>
+  <div v-if="fetching" class="row my-5">
+    <div class="col-12 d-flex justify-content-center">
+      <div class="spinner-border" role="status" style="width: 4rem; height: 4rem">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div v-if="!error && fetched && todos.length > 0" class="row mt-3">
+    <div class="col-12">
+      <ul class="list-group list-group-flush">
+          <li
+            v-for="todo in todos"
+            v-bind:key="todo.id"
+            class="list-group-item d-flex align-items-center"
+          >
+            <i
+              v-if="todo.completed"
+              v-on:click="toggleTodo(todo)"
+              v-on:keydown.enter="toggleTodo(todo)"
+              role="checkbox"
+              aria-checked="true"
+              aria-label="Done"
+              tabIndex="0"
+              class="far fa-check-square text-muted mr-3"
+              style="font-size: 1.3rem; cursor: pointer"
+            />
+            <span 
+              v-if="todo.completed"
+              class="flex-grow-1 text-muted text-capitalize font-weight-light">
+              <del>{{todo.title}}</del>
+            </span>
+            <i
+              v-if="!todo.completed"
+              v-on:click="toggleTodo(todo)"
+              v-on:keydown.enter="toggleTodo(todo)"
+              role="checkbox"
+              aria-checked="false"
+              aria-label="Not done"
+              tabIndex="0"
+              class="far fa-square mr-3"
+              style="font-size: 1.3rem; cursor: pointer"
+            />
+            <span 
+              v-if="!todo.completed"
+              class="flex-grow-1 disabled text-capitalize">
+              {{todo.title}}
+            </span>
+            <button
+              type="button"
+              class="btn btn-sm btn-danger font-weight-bold text-nowrap ml-2"
+              v-on:click="removeTodo(todo.id)"
+            >
+              <i class="fas fa-trash mr-2" />
+              Remove
+            </button>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <div v-if="!error && pageCount > 0" class="row mt-2">
+    <div class="col-12">
+      <VuePaginate
+        previous-label="<i class=&quot;fas fa-chevron-left&quot;/>"
+        next-label="<i class=&quot;fas fa-chevron-right&quot;/>"
+        break-label="..."
+        v-bind:force-page="currentPage"
+        v-bind:page-count="pageCount"
+        v-bind:margin-pages-displayed="1"
+        v-bind:page-range-displayed="5"
+        v-bind:on-page-change="changePage"
+        container-class="pagination justify-content-center mb-0 font-weight-bold"
+        page-class="page-item"
+        page-link-class="page-link"
+        previous-class="page-item"
+        previous-link-class="page-link"
+        next-class="page-item"
+        next-link-class="page-link"
+        break-class="page-item"
+        break-link-class="page-link"
+        active-class="active"
+        active-link-class=""
+        disabled-class="disabled"
+      />
+    </div>
+  </div>
+  <div v-if="!!error" class="row mt-3">
+    <div class="col-12">
+      <div class="alert alert-danger mb-0" role="alert">
+        {{error}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+PROJECT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
+SCRIPTS_PATH=$(dirname "$(readlink -f "$0")")
+DOCKER_CONTEXT_PATH="$PROJECT_PATH/docker"
+NGINX_CONFIG_PATH="$PROJECT_PATH/nginx"
+
+"$SCRIPTS_PATH/build-prod" \
+&& rm -f -r "$DOCKER_CONTEXT_PATH" \
+&& mkdir "$DOCKER_CONTEXT_PATH" \
+&& cp "$PROJECT_PATH/dockerfile" "$DOCKER_CONTEXT_PATH/dockerfile" \
+&& cp -r "$PROJECT_PATH/dist" "$DOCKER_CONTEXT_PATH/dist" \
+&& cp -r "$NGINX_CONFIG_PATH/nginx.docker.conf" "$DOCKER_CONTEXT_PATH/default.conf" \
+&& docker build -t vueroutervuextodolist:latest "$DOCKER_CONTEXT_PATH"
+
+rm -f -r "$DOCKER_CONTEXT_PATH"

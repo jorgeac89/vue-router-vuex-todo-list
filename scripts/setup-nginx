@@ -1,0 +1,10 @@
+#!/bin/sh
+
+PROJECT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
+NGINX_CONFIG_PATH="$PROJECT_PATH/nginx"
+
+sed "s#<path_to_project>#$PROJECT_PATH#g" "$NGINX_CONFIG_PATH/nginx.local.conf" \
+  | sudo tee /etc/nginx/sites-available/vueroutervuextodolist > /dev/null \
+&& sudo ln -sf /etc/nginx/sites-available/vueroutervuextodolist /etc/nginx/sites-enabled/vueroutervuextodolist \
+&& mkdir -p "$PROJECT_PATH/log" \
+&& sudo service nginx restart
