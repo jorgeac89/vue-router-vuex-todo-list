@@ -2,7 +2,7 @@
 
 <script>
   import { mapActions, mapMutations, mapState } from 'vuex';
-  import VuePaginate from 'lib/vue-pagination';
+  import VuePagination from 'lib/vue-pagination';
   import mutationTypes from './mutation-types';
   import actionTypes from  './action-types';
 
@@ -42,7 +42,7 @@
       }
     },
     components: {
-      VuePaginate
+      VuePagination
     }
   }
 </script>
