@@ -1,6 +1,6 @@
 import { fetchTodosEndPoint } from 'config';
 import mutationTypes from './mutation-types';
-import actionTypes from  './action-types';
+import actionTypes from './action-types';
 
 const initialState = {
   fetching: false,

@@ -4,5 +4,5 @@ PROJECT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
 
 cd "$PROJECT_PATH" \
 && "$PROJECT_PATH/node_modules/.bin/eslint" \
-  "$PROJECT_PATH/src/**/*.{js,jsx}" \
+  "$PROJECT_PATH/{__tests__,src}/**/*.{js,jsx}" \
 || exit 1

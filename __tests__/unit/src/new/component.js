@@ -2,7 +2,7 @@ import { createLocalVue, RouterLinkStub, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
 import New from 'new';
 
-const localVue = createLocalVue()
+const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('New component', () => {
@@ -20,13 +20,15 @@ describe('New component', () => {
         }
       }
     });
-    expect(shallowMount(New, {
-      store,
-      localVue,
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
-    })).toMatchSnapshot();
+    expect(
+      shallowMount(New, {
+        store,
+        localVue,
+        stubs: {
+          RouterLink: RouterLinkStub
+        }
+      })
+    ).toMatchSnapshot();
   });
 
   it('renders correctly with text', () => {
@@ -43,12 +45,14 @@ describe('New component', () => {
         }
       }
     });
-    expect(shallowMount(New, {
-      store,
-      localVue,
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
-    })).toMatchSnapshot();
+    expect(
+      shallowMount(New, {
+        store,
+        localVue,
+        stubs: {
+          RouterLink: RouterLinkStub
+        }
+      })
+    ).toMatchSnapshot();
   });
 });

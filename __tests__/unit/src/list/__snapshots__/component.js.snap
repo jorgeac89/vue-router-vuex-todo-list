@@ -140,7 +140,7 @@ exports[`List component renders correctly with elements to display 1`] = `
   </div>
   <div class="row mt-2">
     <div class="col-12">
-      <vuepaginate-stub previouslabel="<i class=&quot;fas fa-chevron-left&quot;/>" nextlabel="<i class=&quot;fas fa-chevron-right&quot;/>" breaklabel="..." forcepage="0" pagecount="1" marginpagesdisplayed="1" pagerangedisplayed="5" onpagechange="function () { [native code] }" containerclass="pagination justify-content-center mb-0 font-weight-bold" pageclass="page-item" pagelinkclass="page-link" previousclass="page-item" previouslinkclass="page-link" nextclass="page-item" nextlinkclass="page-link" breakclass="page-item" breaklinkclass="page-link" activeclass="active" activelinkclass="" disabledclass="disabled"></vuepaginate-stub>
+      <vuepagination-stub previouslabel="<i class=&quot;fas fa-chevron-left&quot;/>" nextlabel="<i class=&quot;fas fa-chevron-right&quot;/>" breaklabel="..." forcepage="0" pagecount="1" marginpagesdisplayed="1" pagerangedisplayed="5" onpagechange="function () { [native code] }" containerclass="pagination justify-content-center mb-0 font-weight-bold" pageclass="page-item" pagelinkclass="page-link" previousclass="page-item" previouslinkclass="page-link" nextclass="page-item" nextlinkclass="page-link" breakclass="page-item" breaklinkclass="page-link" activeclass="active" activelinkclass="" disabledclass="disabled"></vuepagination-stub>
     </div>
   </div>
   <!---->
