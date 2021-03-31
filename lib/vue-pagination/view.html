@@ -96,7 +96,7 @@
   </li>
   <li
     v-bind:class="`${nextClass ? nextClass : ''}
-      ${currentPage === (pageCount - 1) ? disabledClass : ''}`.trim()">
+      ${currentPage >= (pageCount - 1)  ? disabledClass : ''}`.trim()">
     <a
       v-on:click="changePage(currentPage + 1)"
       v-on:keydown.enter="changePage(currentPage + 1)"
