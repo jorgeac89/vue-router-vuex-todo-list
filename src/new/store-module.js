@@ -24,13 +24,25 @@ const module = {
         completed: false
       };
       if (!context.rootState.list.fetching && !context.rootState.list.fetched) {
-        context.dispatch(`list/${listActionTypes.FETCH_TODOS}`, null, { root: true }).then(() => {
-          context.commit(`list/${listMutationTypes.ADD_TODO}`, newTodo, { root: true });
-          context.dispatch(`list/${listActionTypes.CHANGE_TO_LAST_PAGE}`, null, { root: true });
-        });
+        context
+          .dispatch(`list/${listActionTypes.FETCH_TODOS}`, null, { root: true })
+          .then(() => {
+            context.commit(`list/${listMutationTypes.ADD_TODO}`, newTodo, {
+              root: true
+            });
+            context.dispatch(
+              `list/${listActionTypes.CHANGE_TO_LAST_PAGE}`,
+              null,
+              { root: true }
+            );
+          });
       } else {
-        context.commit(`list/${listMutationTypes.ADD_TODO}`, newTodo, { root: true });
-        context.dispatch(`list/${listActionTypes.CHANGE_TO_LAST_PAGE}`, null, { root: true });
+        context.commit(`list/${listMutationTypes.ADD_TODO}`, newTodo, {
+          root: true
+        });
+        context.dispatch(`list/${listActionTypes.CHANGE_TO_LAST_PAGE}`, null, {
+          root: true
+        });
       }
       context.commit(mutationTypes.CHANGE_TODO_TEXT, initialState.todoText);
       router.push('/');
