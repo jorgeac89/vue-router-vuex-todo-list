@@ -3,6 +3,6 @@ import BottomBar from 'common/bottom-bar';
 
 describe('BottomBar component', () => {
   it('renders correctly', () => {
-    expect(shallowMount(BottomBar)).toMatchSnapshot()
+    expect(shallowMount(BottomBar)).toMatchSnapshot();
   });
 });

@@ -14,7 +14,7 @@ describe('List component', () => {
           namespaced: true,
           state: {
             todosPerPage: 10,
-            fetching:true,
+            fetching: true,
             fetched: false,
             todos: [],
             pageCount: 0,
@@ -24,18 +24,20 @@ describe('List component', () => {
           actions: {
             removeTodo: jest.fn(),
             fetchTodos: jest.fn(),
-            changeToLastPage: jest.fn(),
+            changeToLastPage: jest.fn()
           }
         }
       }
     });
-    expect(shallowMount(List, {
-      store,
-      localVue,
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
-    })).toMatchSnapshot();
+    expect(
+      shallowMount(List, {
+        store,
+        localVue,
+        stubs: {
+          RouterLink: RouterLinkStub
+        }
+      })
+    ).toMatchSnapshot();
   });
 
   it('renders correctly without elements to display', () => {
@@ -45,7 +47,7 @@ describe('List component', () => {
           namespaced: true,
           state: {
             todosPerPage: 10,
-            fetching:false,
+            fetching: false,
             fetched: true,
             todos: [],
             pageCount: 0,
@@ -55,18 +57,20 @@ describe('List component', () => {
           actions: {
             removeTodo: jest.fn(),
             fetchTodos: jest.fn(),
-            changeToLastPage: jest.fn(),
+            changeToLastPage: jest.fn()
           }
         }
       }
     });
-    expect(shallowMount(List, {
-      store,
-      localVue,
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
-    })).toMatchSnapshot();
+    expect(
+      shallowMount(List, {
+        store,
+        localVue,
+        stubs: {
+          RouterLink: RouterLinkStub
+        }
+      })
+    ).toMatchSnapshot();
   });
 
   it('renders correctly with elements to display', () => {
@@ -76,7 +80,7 @@ describe('List component', () => {
           namespaced: true,
           state: {
             todosPerPage: 10,
-            fetching:false,
+            fetching: false,
             fetched: true,
             todos: todos1To10.response,
             pageCount: 1,
@@ -86,18 +90,20 @@ describe('List component', () => {
           actions: {
             removeTodo: jest.fn(),
             fetchTodos: jest.fn(),
-            changeToLastPage: jest.fn(),
+            changeToLastPage: jest.fn()
           }
         }
       }
     });
-    expect(shallowMount(List, {
-      store,
-      localVue,
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
-    })).toMatchSnapshot();
+    expect(
+      shallowMount(List, {
+        store,
+        localVue,
+        stubs: {
+          RouterLink: RouterLinkStub
+        }
+      })
+    ).toMatchSnapshot();
   });
 
   it('renders correctly when an error occurs', () => {
@@ -107,7 +113,7 @@ describe('List component', () => {
           namespaced: true,
           state: {
             todosPerPage: 10,
-            fetching:false,
+            fetching: false,
             fetched: true,
             todos: [],
             pageCount: 0,
@@ -117,17 +123,19 @@ describe('List component', () => {
           actions: {
             removeTodo: jest.fn(),
             fetchTodos: jest.fn(),
-            changeToLastPage: jest.fn(),
+            changeToLastPage: jest.fn()
           }
         }
       }
     });
-    expect(shallowMount(List, {
-      store,
-      localVue,
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
-    })).toMatchSnapshot();
+    expect(
+      shallowMount(List, {
+        store,
+        localVue,
+        stubs: {
+          RouterLink: RouterLinkStub
+        }
+      })
+    ).toMatchSnapshot();
   });
 });
