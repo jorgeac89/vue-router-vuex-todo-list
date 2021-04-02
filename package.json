@@ -1,6 +1,6 @@
 {
 	"name": "vue-router-vuex-todo-list",
-	"version": "1.1.0-snapshot.5",
+	"version": "1.2.0-rc.1",
 	"description": "Example of web application implemented with Vue.js, Vue Router and Vuex",
 	"keywords": [
 		"vue",
@@ -102,7 +102,7 @@
 		"node-sass": "^5.0.0",
 		"onchange": "^7.1.0",
 		"postcss": "^8.2.9",
-		"postcss-import": "^14.0.0",
+		"postcss-import": "^14.0.1",
 		"postcss-loader": "^5.2.0",
 		"postcss-preset-env": "^6.7.0",
 		"prettier": "^2.2.1",
@@ -121,7 +121,7 @@
 		"vue-loader": "^15.9.6",
 		"vue-style-loader": "^4.1.3",
 		"vue-template-compiler": "^2.6.12",
-		"webpack": "^5.28.0",
+		"webpack": "^5.30.0",
 		"webpack-bundle-analyzer": "^4.4.0",
 		"webpack-cli": "^4.6.0",
 		"webpack-dev-server": "^3.11.2",
