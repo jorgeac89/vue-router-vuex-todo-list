@@ -30,7 +30,7 @@
 
 </div>
 
-Example of a web application implemented with **Vue.js**, **Vue Router** and **Vuex**.
+Example of web application implemented with **Vue.js**, **Vue Router** and **Vuex**.
 
 ## Table of contents
 
