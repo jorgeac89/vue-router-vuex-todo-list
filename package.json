@@ -1,6 +1,6 @@
 {
 	"name": "vue-router-vuex-todo-list",
-	"version": "1.1.0-snapshot.3",
+	"version": "1.1.0-snapshot.3.178f9193a4.1",
 	"description": "Example of a web application developed with Vue.js, Vue Router and Vuex",
 	"keywords": [
 		"vue",
@@ -55,6 +55,7 @@
 		"test:watch": "./scripts/test-watch",
 		"test:coverage": "./scripts/test-coverage",
 		"test:update": "./scripts/test-update",
+		"test:clear": "./scripts/test-clear-cache",
 		"lint": "./scripts/lint",
 		"lint:watch": "./scripts/lint-watch",
 		"lint:fix": "./scripts/lint-fix",

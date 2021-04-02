@@ -394,6 +394,12 @@ To generate a coverage report use the following command:
 pnpm test:coverage
 ```
 
+In order to run the tests faster, Jest generates a cache which sometimes is not updated as it should. If the result of some test are not what expected after checking them, run the following command to clear the cache and run the tests again:
+
+```sh
+pnpm test:clear
+```
+
 ## Coding style
 
 The project uses ESLint and Stylelint to check the JavaScript, CSS, and SCSS coding style and Prettier to format the code.
