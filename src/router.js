@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path: '/list',
     name: 'list',
     component: List
   },
@@ -19,6 +19,10 @@ const routes = [
     path: '/404',
     name: 'error-404',
     component: () => import(/* webpackChunkName: "new" */ 'error-404')
+  },
+  {
+    path: '/',
+    redirect: '/list'
   },
   {
     path: '*',
