@@ -30,7 +30,7 @@
 
 </div>
 
-Example of a web application implemented with **Vue.js**, **Vue Router** and **Vuex**.
+Example of web application implemented with **Vue.js**, **Vue Router** and **Vuex**.
 
 ## Table of contents
 
@@ -392,6 +392,12 @@ To generate a coverage report use the following command:
 
 ```sh
 pnpm test:coverage
+```
+
+In order to run the tests faster, Jest generates a cache which sometimes is not updated as it should. If the result of some test are not what expected after checking them, run the following command to clear the cache and run the tests again:
+
+```sh
+pnpm test:clear
 ```
 
 ## Coding style
